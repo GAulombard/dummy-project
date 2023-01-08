@@ -34,7 +34,7 @@ build/
 
 ### OTHERS ###
 /mysql.secrets
-!/dummy_db/
+/dummy_db/
 /dummy.api.secrets
 /dummy_db/#ib_16384_0.dblwr
 /dummy_db/#ib_16384_1.dblwr
