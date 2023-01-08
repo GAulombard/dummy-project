@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  dummy-api:
+    build: .
+    image: dummy-project-0.0.1.jar
+    ports:
+      - '8080:8080'
+    container_name: dummy-api
+    depends_on:
+      - mysql
+    networks:
+      - web-server
+    env_file:
+      - dummy.api.secrets
+  mysql:
+    image: mysql
+    container_name: mysqldb
+    ports:
+      - '3307:3306'
+    volumes:
+      - ./dummy_db:/var/lib/mysql
+    networks:
+      - web-server
+    restart: always
+    env_file:
+      - mysql.secrets
+networks:
+  web-server:
+    driver: bridge
