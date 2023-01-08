@@ -33,9 +33,9 @@ build/
 .vscode/
 
 ### OTHERS ###
-!/mysql.secrets
+/mysql.secrets
 !/dummy_db/
-!/dummy.api.secrets
+/dummy.api.secrets
 /dummy_db/#ib_16384_0.dblwr
 /dummy_db/#ib_16384_1.dblwr
 /dummy_db/#innodb_redo/#ib_redo9
