@@ -2,22 +2,22 @@ version: '3.8'
 services:
   dummy-api:
     build: .
-    image: dummy-project-0.0.1.jar
+    image: dummy-api.jar
     ports:
-      - '8080:8080'
+      - '9090:8080'
     container_name: dummy-api
     depends_on:
       - mysql
     networks:
       - web-server
-    env_file:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3307/dummy_db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3307/dummy_db
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=!GeAu29de86@Mysql#mdp
       - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL5Dialect
   mysql:
     image: mysql
-    container_name: mysql
+    container_name: mysqldb
     ports:
       - '3307:3306'
     volumes:
