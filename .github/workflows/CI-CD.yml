@@ -38,7 +38,7 @@ jobs:
         name: Build & push Docker image
         with:
           image: hod0r/dummy-api
-          tags: v1, latest
+          tags: latest
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
