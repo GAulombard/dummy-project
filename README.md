@@ -1,5 +1,6 @@
 # dummy-project
 
+mvn clean install
 docker build -t dummy-api .
 
 1 - docker network create spring-net
