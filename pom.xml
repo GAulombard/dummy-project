@@ -28,7 +28,7 @@
     <scm>
         <connection>smc:git:git@github.com:GAulombard/dummy-project.git</connection>
         <developerConnection>smc:git:git@github.com:GAulombard/dummy-project.git</developerConnection>
-        <url>https://github.com/GAulombard/dummy-project</url>
+        <url>https://github.com/gaulombard/dummy-project</url>
         <tag>HEAD</tag>
     </scm>
 
