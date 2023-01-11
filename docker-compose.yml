@@ -21,7 +21,7 @@ services:
     ports:
       - '3307:3306'
     volumes:
-      - ./dummy_db:/var/lib/mysql
+      - D:/Programming/_database/dummy_db:/var/lib/mysql
     networks:
       - web-server
     restart: always
