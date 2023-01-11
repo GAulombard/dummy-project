@@ -13,7 +13,7 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3307/dummy_db
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=!GeAu29de86@Mysql#mdp
+      - SPRING_DATASOURCE_PASSWORD=rootroot
       - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL5Dialect
   mysql:
     image: mysql

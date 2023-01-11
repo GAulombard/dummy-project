@@ -16,6 +16,14 @@
     <properties>
         <java.version>19</java.version>
     </properties>
+
+    <scm>
+        <connection>smc:git:git@github.com:GAulombard/dummy-project.git</connection>
+        <developerConnection>smc:git:git@github.com:GAulombard/dummy-project.git</developerConnection>
+        <url>https://github.com/GAulombard/dummy-project</url>
+        <tag>HEAD</tag>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
