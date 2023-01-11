@@ -237,3 +237,5 @@ build/
 /dummy_db/performance_schema/users_144.sdi
 /dummy_db/performance_schema/variables_by_thr_183.sdi
 /dummy_db/performance_schema/variables_info_186.sdi
+/pom.xml.releaseBackup
+/release.properties
