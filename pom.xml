@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.hodorcorporation</groupId>
     <artifactId>dummy-project</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.6-SNAPSHOT</version>
     <name>dummy-project</name>
     <description>dummy-project</description>
     <properties>
@@ -26,8 +26,8 @@
     </distributionManagement>
 
     <scm>
-        <connection>smc:git:ssh://git@github.com:GAulombard/dummy-project.git</connection>
-        <developerConnection>smc:git:ssh://git@github.com:GAulombard/dummy-project.git</developerConnection>
+        <connection>scm:git:ssh://git@github.com:GAulombard/dummy-project.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:GAulombard/dummy-project.git</developerConnection>
         <url>https://github.com/GAulombard/dummy-project</url>
         <tag>HEAD</tag>
     </scm>
