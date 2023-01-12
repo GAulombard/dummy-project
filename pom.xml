@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.hodorcorporation</groupId>
     <artifactId>dummy-project</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.5-SNAPSHOT</version>
     <name>dummy-project</name>
     <description>dummy-project</description>
     <properties>
