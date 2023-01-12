@@ -26,8 +26,8 @@
     </distributionManagement>
 
     <scm>
-        <connection>smc:git:ssh://GAulombard@github.com/GAulombard/dummy-project.git</connection>
-        <developerConnection>smc:git:ssh://GAulombard@github.com/GAulombard/dummy-project.git</developerConnection>
+        <connection>smc:git:ssh://git@github.com/GAulombard/dummy-project.git</connection>
+        <developerConnection>smc:git:ssh://git@github.com/GAulombard/dummy-project.git</developerConnection>
         <url>https://github.com/GAulombard/dummy-project</url>
         <tag>HEAD</tag>
     </scm>
