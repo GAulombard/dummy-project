@@ -1,4 +1,4 @@
-package com.hodorcorporation.dummyproject;
+package com.hodorcorporation.dummyproject.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
