@@ -1,8 +1,5 @@
 package com.hodorcorporation.dummyproject.service.impl;
 
-import com.hodorcorporation.dummyproject.dto.create.DummyCreateDTO;
-import com.hodorcorporation.dummyproject.dto.read.DummyReadDTO;
-import com.hodorcorporation.dummyproject.dto.update.DummyUpdateDTO;
 import com.hodorcorporation.dummyproject.entity.Dummy;
 import com.hodorcorporation.dummyproject.exception.DummyServiceException;
 import com.hodorcorporation.dummyproject.repository.DummyRepository;
@@ -23,51 +20,30 @@ public class DummyServiceImpl implements DummyService {
     private final DummyRepository dummyRepository;
 
     @Override
-    public DummyReadDTO createDummy(DummyCreateDTO createDTO) {
-
-        Dummy dummy = dummyRepository.save(Dummy.builder()
-                .name(createDTO.getName())
-                .build());
-
-        return DummyReadDTO.builder()
-                .id(dummy.getId())
-                .name(dummy.getName())
-                .build();
+    public Dummy createDummy(Dummy dummy) {
+        return dummyRepository.save(dummy);
     }
 
     @Override
-    public DummyReadDTO getDummyById(Long id) {
-        Dummy dummy = dummyRepository.findById(id)
+    public Dummy getDummyById(Long id) {
+        return dummyRepository.findById(id)
                 .orElseThrow(() -> new DummyServiceException(MessageFormat.format(NOT_FOUND, id)));
-        return DummyReadDTO.builder()
-                .id(dummy.getId())
-                .name(dummy.getName())
-                .build();
     }
 
     @Override
-    public List<DummyReadDTO> getAllDummies() {
-        return dummyRepository.findAll().stream()
-                .map(dummy -> DummyReadDTO.builder()
-                        .id(dummy.getId())
-                        .name(dummy.getName())
-                        .build())
-                .toList();
+    public List<Dummy> getAllDummies() {
+        return dummyRepository.findAll();
     }
 
     @Override
-    public DummyReadDTO updateDummy(DummyUpdateDTO updateDTO) {
+    public Dummy updateDummy(Dummy updateDTO) {
         Long id = updateDTO.getId();
         Dummy dummy = dummyRepository.findById(id)
                 .orElseThrow(() -> new DummyServiceException(MessageFormat.format(NOT_FOUND, id)));
 
         dummy.setName(updateDTO.getName());
-        dummy = dummyRepository.save(dummy);
 
-        return DummyReadDTO.builder()
-                .id(dummy.getId())
-                .name(dummy.getName())
-                .build();
+        return dummyRepository.save(dummy);
     }
 
     @Override

@@ -1,8 +1,6 @@
 package com.hodorcorporation.dummyproject.controller;
 
-import com.hodorcorporation.dummyproject.dto.create.DummyCreateDTO;
-import com.hodorcorporation.dummyproject.dto.read.DummyReadDTO;
-import com.hodorcorporation.dummyproject.dto.update.DummyUpdateDTO;
+import com.hodorcorporation.dummyproject.entity.Dummy;
 import com.hodorcorporation.dummyproject.service.DummyService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.repository.query.Param;
@@ -22,27 +20,27 @@ public class DummyController {
     private final DummyService dummyService;
 
     @PostMapping
-    public ResponseEntity<DummyReadDTO> createDummy(@RequestBody DummyCreateDTO createDTO) {
+    public ResponseEntity<Dummy> createDummy(@RequestBody Dummy dummy) {
         return status(HttpStatus.CREATED)
-                .body(dummyService.createDummy(createDTO));
+                .body(dummyService.createDummy(dummy));
     }
 
     @GetMapping
-    public ResponseEntity<DummyReadDTO> getDummyById(@Param("id") Long id) {
+    public ResponseEntity<Dummy> getDummyById(@Param("id") Long id) {
         return status(HttpStatus.OK)
                 .body(dummyService.getDummyById(id));
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<DummyReadDTO>> getAllDummies() {
+    public ResponseEntity<List<Dummy>> getAllDummies() {
         return status(HttpStatus.OK)
                 .body(dummyService.getAllDummies());
     }
 
     @PutMapping
-    public ResponseEntity<DummyReadDTO> updateDummy(@RequestBody DummyUpdateDTO updateDTO) {
+    public ResponseEntity<Dummy> updateDummy(@RequestBody Dummy dummy) {
         return status(HttpStatus.OK)
-                .body(dummyService.updateDummy(updateDTO));
+                .body(dummyService.updateDummy(dummy));
     }
 
     @DeleteMapping

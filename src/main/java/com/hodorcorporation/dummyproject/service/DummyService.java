@@ -1,20 +1,18 @@
 package com.hodorcorporation.dummyproject.service;
 
-import com.hodorcorporation.dummyproject.dto.create.DummyCreateDTO;
-import com.hodorcorporation.dummyproject.dto.read.DummyReadDTO;
-import com.hodorcorporation.dummyproject.dto.update.DummyUpdateDTO;
+import com.hodorcorporation.dummyproject.entity.Dummy;
 
 import java.util.List;
 
 public interface DummyService {
 
-    DummyReadDTO createDummy(DummyCreateDTO createDTO);
+    Dummy createDummy(Dummy dummy);
 
-    DummyReadDTO getDummyById(Long id);
+    Dummy getDummyById(Long id);
 
-    List<DummyReadDTO> getAllDummies();
+    List<Dummy> getAllDummies();
 
-    DummyReadDTO updateDummy(DummyUpdateDTO updateDTO);
+    Dummy updateDummy(Dummy dummy);
 
     Boolean deleteDummyById(Long id);
 
