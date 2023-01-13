@@ -16,7 +16,7 @@ public interface DummyService {
 
     DummyReadDTO updateDummy(DummyUpdateDTO updateDTO);
 
-    void deleteDummyById(Long id);
+    Boolean deleteDummyById(Long id);
 
 
 }

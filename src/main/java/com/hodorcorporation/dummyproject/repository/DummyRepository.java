@@ -1,6 +1,6 @@
 package com.hodorcorporation.dummyproject.repository;
 
-import com.hodorcorporation.dummyproject.model.Dummy;
+import com.hodorcorporation.dummyproject.entity.Dummy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

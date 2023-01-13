@@ -1,4 +1,4 @@
-package com.hodorcorporation.dummyproject.model;
+package com.hodorcorporation.dummyproject.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

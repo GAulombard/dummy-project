@@ -3,14 +3,15 @@ package com.hodorcorporation.dummyproject.service.impl;
 import com.hodorcorporation.dummyproject.dto.create.DummyCreateDTO;
 import com.hodorcorporation.dummyproject.dto.read.DummyReadDTO;
 import com.hodorcorporation.dummyproject.dto.update.DummyUpdateDTO;
+import com.hodorcorporation.dummyproject.entity.Dummy;
 import com.hodorcorporation.dummyproject.exception.DummyServiceException;
-import com.hodorcorporation.dummyproject.model.Dummy;
 import com.hodorcorporation.dummyproject.repository.DummyRepository;
 import com.hodorcorporation.dummyproject.service.DummyService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 @Service
@@ -18,6 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DummyServiceImpl implements DummyService {
 
+    private static final String NOT_FOUND = "Dummy: {0} not found";
     private final DummyRepository dummyRepository;
 
     @Override
@@ -36,7 +38,7 @@ public class DummyServiceImpl implements DummyService {
     @Override
     public DummyReadDTO getDummyById(Long id) {
         Dummy dummy = dummyRepository.findById(id)
-                .orElseThrow(() -> new DummyServiceException("Dummy: " + id + "not found"));
+                .orElseThrow(() -> new DummyServiceException(MessageFormat.format(NOT_FOUND, id)));
         return DummyReadDTO.builder()
                 .id(dummy.getId())
                 .name(dummy.getName())
@@ -57,7 +59,7 @@ public class DummyServiceImpl implements DummyService {
     public DummyReadDTO updateDummy(DummyUpdateDTO updateDTO) {
         Long id = updateDTO.getId();
         Dummy dummy = dummyRepository.findById(id)
-                .orElseThrow(() -> new DummyServiceException("Dummy: " + id + "not found"));
+                .orElseThrow(() -> new DummyServiceException(MessageFormat.format(NOT_FOUND, id)));
 
         dummy.setName(updateDTO.getName());
         dummy = dummyRepository.save(dummy);
@@ -69,10 +71,10 @@ public class DummyServiceImpl implements DummyService {
     }
 
     @Override
-    public void deleteDummyById(Long id) {
+    public Boolean deleteDummyById(Long id) {
         Dummy dummy = dummyRepository.findById(id)
-                .orElseThrow(() -> new DummyServiceException("Dummy: " + id + "not found"));
-
+                .orElseThrow(() -> new DummyServiceException(MessageFormat.format(NOT_FOUND, id)));
         dummyRepository.delete(dummy);
+        return true;
     }
 }
