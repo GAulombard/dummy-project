@@ -112,6 +112,9 @@ jobs:
 
   dockerize_and_push:
     name: Dockerize and push
+    needs:
+      - code_analysis
+      - build_and_test
     runs-on: ubuntu-latest
     steps:
       - name: Build & push Docker image
