@@ -12,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -22,7 +21,8 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class DummyServiceImplTest {
 
-    @Mock private DummyRepository dummyRepository;
+    @Mock
+    private DummyRepository dummyRepository;
 
     private DummyService dummyService;
 
@@ -49,7 +49,7 @@ class DummyServiceImplTest {
     @Test
     void getDummyById() {
         // given
-        Dummy dummy = new Dummy(1L,"hodor");
+        Dummy dummy = new Dummy(1L, "hodor");
         given(dummyRepository.findById(anyLong())).willReturn(Optional.of(dummy));
 
         // when
@@ -86,7 +86,7 @@ class DummyServiceImplTest {
     @Test
     void updateDummy() {
         // given
-        Dummy dummy = new Dummy(1L,"hodor");
+        Dummy dummy = new Dummy(1L, "hodor");
         given(dummyRepository.findById(anyLong())).willReturn(Optional.of(dummy));
         given(dummyRepository.save(any(Dummy.class))).willReturn(mock(Dummy.class));
 
@@ -99,9 +99,24 @@ class DummyServiceImplTest {
     }
 
     @Test
+    void updateDummy_shouldThrowException() {
+        // given
+        Dummy dummy = new Dummy(1L, "hodor");
+        given(dummyRepository.findById(anyLong())).willReturn(Optional.empty());
+
+        // when
+        // then
+        assertThatThrownBy(() -> dummyService.updateDummy(dummy))
+                .isInstanceOf(DummyServiceException.class)
+                .hasMessageContaining("Dummy: " + dummy.getId() + " not found");
+        verify(dummyRepository, never()).save(any());
+
+    }
+
+    @Test
     void deleteDummyById() {
         // given
-        Dummy dummy = new Dummy(1L,"hodor");
+        Dummy dummy = new Dummy(1L, "hodor");
         given(dummyRepository.findById(anyLong())).willReturn(Optional.of(dummy));
 
         // when
@@ -121,8 +136,8 @@ class DummyServiceImplTest {
         // then
         assertThatThrownBy(() -> dummyService.deleteDummyById(id))
                 .isInstanceOf(DummyServiceException.class)
-                .hasMessageContaining("Dummy: "+id+" not found");
+                .hasMessageContaining("Dummy: " + id + " not found");
 
-        verify(dummyRepository,never()).delete(any(Dummy.class));
+        verify(dummyRepository, never()).delete(any(Dummy.class));
     }
 }
