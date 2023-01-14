@@ -140,21 +140,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=GAulombard_dummy-project -DMYSQL_USER=${{ env.MYSQL_USER }} -DMYSQL_PORT=3307 -DMYSQL_PASSWORD=${{ env.MYSQL_ROOT_PASSWORD }}
-
-  dockerize_and_push:
-    name: Dockerize and push
-    needs:
-      - code_analysis
-      - build_and_test
-      - test_report
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build & push Docker image
-        uses: mr-smithers-excellent/docker-build-push@v5
-        with:
-          image: hod0r/dummy-api
-          tags: latest
-          registry: docker.io
-          dockerfile: Dockerfile
-          username: ${{ env.DOCKER_HUB_USERNAME }}
-          password: ${{ env.DOCKER_HUB_PASSWORD }}

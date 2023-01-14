@@ -31,3 +31,25 @@ jobs:
     steps:
       - name: Print the input tag to STDOUT
         run: echo  The tags are ${{ inputs.tags }} ${{ github.workspace }}
+
+
+
+
+
+  dockerize_and_push:
+    name: Dockerize and push
+    needs:
+      - code_analysis
+      - build_and_test
+      - test_report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: hod0r/dummy-api
+          tags: latest
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ env.DOCKER_HUB_USERNAME }}
+          password: ${{ env.DOCKER_HUB_PASSWORD }}
