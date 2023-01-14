@@ -24,6 +24,11 @@ env:
   DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   DOCKER_REPOSITORY: hod0r/dummy-api
+  # Git
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # Sonar
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  SONAR_KEY: ${{ secrets.SONAR_KEY }}
 
 jobs:
   build_and_test:
@@ -149,7 +154,7 @@ jobs:
           name: Test Results
           path: ${{ github.workspace }}/target/surefire-reports/TEST-TestSuite.xml
           reporter: java-junit
-          java-version: 11
+          java-version: ${{ env.JAVA_VERSION }}
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       - name: Update dependency graph
