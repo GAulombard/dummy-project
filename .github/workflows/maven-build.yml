@@ -36,7 +36,6 @@ jobs:
           - '3307:3306'
         env:
           MYSQL_DATABASE: ${{ env.MYSQL_DATABASE }}
-          MYSQL_USER: ${{ env.MYSQL_USER }}
           MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
         options: >-
           --health-cmd="mysqladmin ping"
@@ -46,7 +45,7 @@ jobs:
     steps:
       - name: checkout Git repository
         uses: actions/checkout@v3
-      - name: Set up JDK ${{ env.JAVA_VERSION }}
+      - name: Set up JDK $JAVA_VERSION
         uses: actions/setup-java@v3
         with:
           java-version: ${{ env.JAVA_VERSION }}
