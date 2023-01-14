@@ -32,7 +32,6 @@ jobs:
     services:
       mysql:
         image: mysql
-        container_name: mysqldb
         ports:
           - '3307:3306'
         env:
