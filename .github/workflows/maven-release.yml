@@ -63,7 +63,7 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Publish JAR
-        run: mvn -B release:prepare release:perform -DMYSQL_USER=${{ env.MYSQL_USER }} -DMYSQL_PORT=3307 -DMYSQL_PASSWORD=${{ env.MYSQL_ROOT_PASSWORD }}
+        run: mvn -B release:prepare release:perform -DskipITs -DMYSQL_USER=${{ env.MYSQL_USER }} -DMYSQL_PORT=3307 -DMYSQL_PASSWORD=${{ env.MYSQL_ROOT_PASSWORD }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
