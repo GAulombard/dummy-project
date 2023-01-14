@@ -61,20 +61,22 @@ jobs:
       - build_and_test
     runs-on: ubuntu-latest
     steps:
-      - name: Coverage per Test Execution
-        env:
-          LMT_ACCESS: ${{ secrets.LMT_ACCESS }}
-          LMT_USER: ${{ secrets.LMT_USER }}
-        run: |
-          mvn org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test -Dheadless=true -DLT_USERNAME=$LMT_USER -DLT_ACCESS_KEY=$LMT_ACCESS
-
-      - name: Upload target folder
-        uses: actions/upload-artifact@v2
+      - uses: actions/checkout@v2
+      - name: Set up JDK 19
+        uses: actions/setup-java@v1
         with:
-          name: target
-          path: |
-            ${{ github.workspace }}/target
-            ${{ github.workspace }}/reports
+          java-version: ${{ env.JAVA_VERSION }}
+      - name: Run Coverage
+        run: mvn test
+
+      - name: Add coverage to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
+        with:
+          paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 90
+          min-coverage-changed-files: 90
 
   code_analysis:
     name: Code Analysis
