@@ -51,11 +51,13 @@ jobs:
 
       - name: Release:prepare
         uses: qcastel/github-actions-maven-release@master
+        env:
+          JAVA_HOME: /usr/lib/jvm/java-19-openjdk/
         with:
           git-release-bot-name: "bot-idhub"
           git-release-bot-email: "bot@idhub.io"
 
-          maven-args: "-Dmaven.javadoc.skip=true -DskipTests -DskipITs -Ddockerfile.skip -DdockerCompose.skip -Dmaven.deploy.skip=true -DMYSQL_USER=${{ env.MYSQL_USER }} -DMYSQL_PORT=3307 -DMYSQL_PASSWORD=${{ env.MYSQL_ROOT_PASSWORD }}"
+          maven-args: "-DMYSQL_USER=${{ env.MYSQL_USER }} -DMYSQL_PORT=3307 -DMYSQL_PASSWORD=${{ env.MYSQL_ROOT_PASSWORD }}"
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Build & push Docker image
