@@ -7,8 +7,6 @@
 [![MIT License][license-shield]][license-url]
 
 
-
-
 <!-- ABOUT THE PROJECT -->
 
 ## Dummy-project
