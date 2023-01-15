@@ -1,5 +1,7 @@
 # dummy-project
 
+http://localhost:8080/swagger-ui/index.html
+
 mvn clean install
 docker build -t dummy-api .
 
