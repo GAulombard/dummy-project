@@ -1,10 +1,11 @@
 name: Build, Code Analysis and Test Cover
 
 on:
+  workflow_dispatch:
   pull_request:
     types: [ opened, synchronize, reopened ]
   push:
-    branches: [ "master" , "release" , "develop" ]
+    branches: [ "master" , "release" ]
 env:
   # Mysql
   MYSQL_DATABASE: dummy_db_test
