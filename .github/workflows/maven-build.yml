@@ -1,10 +1,10 @@
-name: Build, Code Analysis and Test Cover
+name: Build, Analyse and Test
 
 on:
   pull_request:
     types: [ opened, synchronize, reopened ]
   push:
-    branches: [ "master" ]
+    branches: [ "master" , "release" ]
 env:
   # Mysql
   MYSQL_DATABASE: dummy_db_test
