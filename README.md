@@ -1,10 +1,12 @@
 <div id="top"></div>
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=GAulombard_dummy-project&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=GAulombard_dummy-project)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=GAulombard_dummy-project&metric=coverage)](https://sonarcloud.io/summary/new_code?id=GAulombard_dummy-project)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=GAulombard_dummy-project&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=GAulombard_dummy-project)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=GAulombard_dummy-project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=GAulombard_dummy-project)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=GAulombard_dummy-project&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=GAulombard_dummy-project)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=GAulombard_dummy-project&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=GAulombard_dummy-project)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=GAulombard_dummy-project&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=GAulombard_dummy-project)
 
 
 <!-- ABOUT THE PROJECT -->
