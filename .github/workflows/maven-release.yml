@@ -63,7 +63,7 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Publish JAR
-        run: mvn -B release:prepare release:perform -Dmaven.test.skip=true -DMYSQL_USER=${{ env.MYSQL_USER }} -DMYSQL_PORT=3307 -DMYSQL_PASSWORD=${{ env.MYSQL_ROOT_PASSWORD }}
+        run: mvn clean -B -Darguments=-DskipTests -DMYSQL_USER=${{ env.MYSQL_USER }} -DMYSQL_PORT=3307 -DMYSQL_PASSWORD=${{ env.MYSQL_ROOT_PASSWORD }} release:prepare release:perform
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
