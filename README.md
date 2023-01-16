@@ -11,79 +11,42 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## Dummy-project
+# Dummy-project
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I
-created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I
-think this is it.
+This is just a useless project to help me learn thing about spring boot, how to docker my app, and how to implement
+CI/CD with git hub. This project serve me as exemple as well t remember how to do things. Maybe it'll help you as well.
 
 Here's why:
 
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+* This is a SpringBoot app wrote with JAVA
+* This app works with a MySQL data base
+* you can find a docker image of this app in Docker hub hod0r/dummy-api
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near
-future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all
-the people have contributed to expanding this template!
+I'm `GAulombard`.
 
-Use the `BLANK_README.md` to get started.
+## Built With
 
-### Built With
+* [Maven 3.8.1](https://maven.apache.org/index.html)
+* [Java 19](https://www.java.com/fr/)
+* [SpringBoot 3](https://spring.io/projects/spring-boot)
+* [Docker 20.1.21](https://www.docker.com/)
+* [MySQL 8](https://www.mysql.com/fr/)
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for
-the acknowledgements section. Here are a few examples.
+## Installation
 
-* [Maven](https://nextjs.org/)
-* [Java](https://reactjs.org/)
-* [SpringBoot](https://vuejs.org/)
-* [Docker](https://angular.io/)
-* [MySQL](https://svelte.dev/)
+Using docker. You'll first need to instal docker desktop form docker website
 
-<!-- GETTING STARTED -->
+```bash
+  docker network create spring-net
+  docker run -d --net spring-net -p 3307:3306 --name mysqldb -e MYSQL_ROOT_PASSWORD=rootroot -e MYSQL_DATABASE=dummy_db -v "./dummy_db":/var/lib/mysql mysql
+  docker run -d --net spring-net -p 9090:8080 --name dummy-api -e MYSQL_HOST=mysqldb -e MYSQL_PASSWORD=rootroot -e MYSQL_USER=root -e MYSQL_PORT=3306 hod0r/dummy-api
+```
 
-## Getting Started
+after that you can check the documentation at this adress
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos
-work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- CONTRIBUTING -->
+```bash
+http://localhost:9090/swagger-ui/index.html
+```
 
 ## Contributing
 
@@ -95,10 +58,10 @@ simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+2. Create your Feature Branch from (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+5. Open a Pull Request toward develop branch
 
 <!-- LICENSE -->
 
@@ -111,9 +74,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+GAulombard - [@your_twitter](https://twitter.com/your_username) - GAulombard
 
 
 <!-- ACKNOWLEDGMENTS -->
@@ -161,16 +122,4 @@ to kick things off!
 
 [product-screenshot]: images/screenshot.png
 
-# dummy-project
-
-http://localhost:8080/swagger-ui/index.html
-
-mvn clean install
-docker build -t dummy-api .
-
-1 - docker network create spring-net
-2 - docker run -d --net spring-net -p 3307:3306 --name mysqldb -e MYSQL_ROOT_PASSWORD=rootroot -e
-MYSQL_DATABASE=dummy_db -v "D:/Programming/_database/dummy_db":/var/lib/mysql mysql
-3 - docker run -d --net spring-net -p 9090:8080 --name dummy-api -e MYSQL_HOST=mysqldb -e MYSQL_PASSWORD=rootroot -e
-MYSQL_USER=root -e MYSQL_PORT=3306 hod0r/dummy-api
 
