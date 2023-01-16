@@ -1,10 +1,8 @@
-name: Build, Analyse and Test
+name: Build, Analyse and Test - with parameters
 
 on:
-  pull_request:
-    types: [ opened, synchronize, reopened ]
-  push:
-    branches: [ "master" , "release" ]
+  workflow_dispatch:
+
 env:
   # Mysql
   MYSQL_DATABASE: dummy_db_test
